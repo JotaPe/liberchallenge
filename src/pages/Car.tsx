@@ -56,12 +56,12 @@ const CarCard = (props) => {
         </View>
         <View style={styles.carTextRow}>
           <Text style={[styles.carTextRowStyle, { fontSize: 10 }]}>
-            {props.fuelType}
+            GASOLINA
           </Text>
           <Text
             style={[
               styles.carTextRowStyle,
-              { paddingRight: 17, paddingLeft: 15 }
+              { paddingRight: 17, paddingLeft: 50 }
             ]}
           >
             POTÊNCIA
@@ -71,12 +71,12 @@ const CarCard = (props) => {
           </Text>
         </View>
         <View style={styles.carTextRow}>
-          <Text style={[styles.carAboutTextRowStyle]}>{props.fuelType}</Text>
+          <Text style={[styles.carAboutTextRowStyle]}>GASOLINA</Text>
           <Text style={[styles.carAboutTextRowStyle, { paddingLeft: 5 }]}>
-            {props.potency} cv
+            1000 cv
           </Text>
           <Text style={[styles.carAboutTextRowStyle, { paddingRight: 45 }]}>
-            {props.cylinders}
+            5000
           </Text>
         </View>
         <View style={styles.carFooter}>
