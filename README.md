@@ -6,8 +6,12 @@ Esse desafio foi feito para desafiar meus conhecimentos sobre React Native, mont
 
 As minhas tentativas falhas de colocar Redux e manejar os estados foi o que me fez mais perder tempo na hora de tentar finalizar o app, a minha falta de conhecimento nessa area acabou impactando um pouco na eficiencia. No fim tentei usar hooks o que se demonstrou um pouco melhor, mas mesmo assim nao o que exatamente estava sendo requisitado.
 
-Dados que ajudaram:
+#### Dados que ajudaram:
 
 https://github.com/deividfortuna/fipe
 
 http://deividfortuna.github.io/fipe
+
+#### Link da Challenge:
+
+https://github.com/libereducacao/liber-react-native-challenge
