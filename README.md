@@ -1,5 +1,10 @@
 # LiberChallenge
 
+<p align="center" >
+    <img src="appimages/photo_2020-02-01_19-58-51.jpg" width="200">
+    <img src="appimages/photo_2020-02-01_19-59-10.jpg" width="200">
+</p>
+
 ### Not Completed
 Esse desafio foi feito para desafiar meus conhecimentos sobre React Native, montando um App que checka a tabela FIPE de preços de carros, eu tive alguns problemas durante o desenvolvimento com questao de escolhas, eu tive alguns problemas para completar a interface, o problema mesmo foi vir na parte de fazer o consumo da API, a falta de um search query faz com que seja realmente dificil consumir essa API sem ter que fazer varios requests e mapeando os resultados para gerar mais resultados, FlatList que eu pensei que iria me ajudar, acabou sendo um problema grande, eu não tive tempo para resolver, mas mostrar um resultado ele ja faz, a pesquisa não funciona, o tempo foi muito curto para pensar em como resolver o problema da falta de um search query, a parte visual e a unica coisa que eu me orgulho nesse app, ja que ele ficou praticamente identico ao conceito do designer foi a interface, tirando a barra de pesquisa tudo esta identico.
 
