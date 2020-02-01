@@ -24,7 +24,7 @@ export const Car: React.FC = () => {
         <Icon name="arrow-left" size={30} />
       </TouchableHighlight>
       <Text style={styles.headerText}>Detalhes</Text>
-      <CarCard />
+      <CarCard price="100.000,00" />
     </View>
   );
 };
@@ -56,7 +56,7 @@ const CarCard = (props) => {
         </View>
         <View style={styles.carTextRow}>
           <Text style={[styles.carTextRowStyle, { fontSize: 10 }]}>
-            COMBUSTÍVEL
+            {props.fuelType}
           </Text>
           <Text
             style={[
@@ -71,12 +71,12 @@ const CarCard = (props) => {
           </Text>
         </View>
         <View style={styles.carTextRow}>
-          <Text style={[styles.carAboutTextRowStyle]}>Gasolina</Text>
+          <Text style={[styles.carAboutTextRowStyle]}>{props.fuelType}</Text>
           <Text style={[styles.carAboutTextRowStyle, { paddingLeft: 5 }]}>
-            1000 cv
+            {props.potency} cv
           </Text>
           <Text style={[styles.carAboutTextRowStyle, { paddingRight: 45 }]}>
-            10.000
+            {props.cylinders}
           </Text>
         </View>
         <View style={styles.carFooter}>

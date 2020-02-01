@@ -1,10 +1,50 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import { TextInput, TouchableHighlight } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Feather";
+import { client } from "./App";
+import _ from "lodash";
+import useAxios from "@use-hooks/axios";
 
 export const Home: React.FC = ({ navigation: { navigate } }) => {
-  const [value, onChangeText] = React.useState();
+  const [value, onChangeText] = React.useState("");
+  const [cars, setCar] = React.useState([]);
+  React.useEffect(() => {
+    const fetchData = async function() {
+      return await client.get("/marcas/59/modelos/5940/anos");
+    };
+  });
+  React.useEffect(() => {
+    const fetchData = async function() {
+      try {
+        const firstRequest = await client.get("/marcas/59/modelos/5940/anos");
+        if (firstRequest.status == 200) {
+          return firstRequest.data.forEach(async codigo => {
+            await client
+              .get(`/marcas/59/modelos/5940/anos/${codigo.codigo}`)
+              .then(data => setCar([...cars, data.data]))
+              .then(data => console.log(data.data))
+              .catch(error => console.log(error));
+          });
+          /* const dataSecondRequest = _.forEach(
+            firstRequest.data,
+            async codigo => {
+              const data = await client.get(
+                
+              );
+              setCar([...cars, data.data]);
+              console.log(cars);
+            }
+          ); */
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+    console.log(cars);
+  }, []);
 
   return (
     <View style={styles.homePadding}>
@@ -25,13 +65,24 @@ export const Home: React.FC = ({ navigation: { navigate } }) => {
         onPress={() => navigate("Car")}
         underlayColor="rgba(255, 255, 255, 0)"
       >
-        <CarListCard price="2000" trademark="honda" model="civic" shiftType="automatico"/>
+        <FlatList
+          data={cars}
+          keyExtractor={cars.CodigoFipe}
+          renderItem={({ item }) => (
+            <CarListCard
+              price={item.Valor}
+              trademark={item.Marca}
+              model={item.Modelo.substr(0, item.Modelo.indexOf(' '))}
+              shiftType="Automatico"
+            />
+          )}
+        />
       </TouchableHighlight>
     </View>
   );
 };
 
-const CarListCard = ({trademark, model, shiftType, price}) => {
+const CarListCard = ({ trademark, model, shiftType, price }) => {
   return (
     <View style={styles.carList}>
       <Image
@@ -52,7 +103,7 @@ const CarListCard = ({trademark, model, shiftType, price}) => {
             {shiftType}
           </Text>
         </View>
-        <Text style={styles.carListAboutHeader}>Preco</Text>
+        <Text style={styles.carListAboutHeader}>Preços</Text>
         <Text style={styles.carListAboutPrice}>
           <Text style={{ fontSize: 12 }}>R$: </Text>
           <Text style={{ fontSize: 16 }}>{price}</Text>
