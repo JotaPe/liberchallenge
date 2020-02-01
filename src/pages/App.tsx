@@ -1,21 +1,20 @@
-import * as React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { Home } from './Home';
-import { Car } from './Car';
+import * as React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationNativeContainer } from "@react-navigation/native";
+import { Home } from "./Home";
+import { Car } from "./Car";
 
-const AppNavigator = createSwitchNavigator({
-  Home: {
-    screen: Home,
-  },
-  Car: {
-    screen: Car
-  }
-});
-
-const AppContainer = createAppContainer(AppNavigator);
+const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
-    return (<AppContainer />);
+    return (
+      <NavigationNativeContainer>
+        <Stack.Navigator initialRouteName="Home" headerMode="none">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Car" component={Car} />
+        </Stack.Navigator>
+      </NavigationNativeContainer>
+    );
   }
 }
