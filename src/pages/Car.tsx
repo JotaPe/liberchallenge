@@ -6,7 +6,6 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 
 export const Car: React.FC = () => {
   const navigation = useNavigation();
-
   return (
     <View style={styles.homePadding}>
       <TouchableHighlight
@@ -29,7 +28,7 @@ export const Car: React.FC = () => {
   );
 };
 
-const CarCard = (props) => {
+const CarCard = props => {
   return (
     <View style={styles.carCard}>
       <Image
